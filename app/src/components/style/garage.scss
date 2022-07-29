@@ -1,0 +1,131 @@
+.track-car {
+   padding: 20px 0px;
+
+   & input{
+      transform: scale(0);
+      width: 0px;
+      height: 0px;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+   }
+   // .track-car__head
+   &__head {
+      display: inline-flex;
+      column-gap: 15px;
+
+      position: relative;
+      &::after{
+         content:'';
+         display: block;
+         position: absolute;
+         left: 0;
+         bottom: -7px;
+         width: 130%;
+         height: 3px;
+         background-color: rgb(158, 193, 130);
+      }
+      margin-bottom: 20px;
+   }
+   // .track-car__select-car
+   &__select-car {
+      &:checked ~ .track-car__label-car-select{
+         background-color: rgb(8, 20, 90);
+         color: #fff;
+      }
+   }
+   // .track-car__label-car-select
+   &__label-car-select{
+
+   }
+    // .track-car__remove-button
+   &__remove-button {
+
+   }
+   &__label-car-select,
+   &__remove-button  {
+         display:block;
+         padding: 5px 10px;
+         background-color: rgb(145, 231, 226);
+         transition: all 0.3s ease 0s;
+         user-select: none;
+         cursor: pointer;
+         &:active{
+            transform: scale(0.9);
+         }
+         @media (any-hover: hover){
+            &:hover{
+               background-color: rgb(50, 107, 198); 
+            }
+         }
+   }
+   &__name{
+
+   }
+   // .track-car__body
+   &__body {
+      display: flex;
+      column-gap: 10px;
+
+   position: relative;
+   &::after{
+      content:'';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      background-size: 10%;
+   }
+   &::before{
+      content:'';
+      display: block;
+      position: absolute;
+      right: 60px;
+      bottom: -5px;
+      height: 40px;
+      width: 3px;
+      background-color: #da4;
+   }
+   }
+   // .track-car__engine
+   &__engine {
+      &:checked ~ .track-car__label-engine{
+         background-color: #fff;
+      }
+   }
+   // .track-car__label-engine
+   &__label-engine,
+   &__label-drive {
+      display: flex;
+      height: max-content;
+      padding: 5px;
+      border: 2px solid #000;
+      transition: all 0.3s ease 0s;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+      &:active{
+         transform: scale(0.9);
+      }
+      @media (any-hover: hover){
+         &:hover{
+            transform: translateY(-2px);
+         }
+      }
+   }
+   // .track-car__drive
+   &__drive {
+      &:checked ~ .track-car__label-drive{
+         background-color: #fff;
+      }
+      &:checked ~ .track-car__label-engine{
+         background-color: rgb(140, 6, 6);
+      }
+   }
+   // .track-car__label-drive
+   &__label-drive {
+   }
+}

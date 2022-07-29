@@ -1,6 +1,10 @@
 export class Cars {
-    async getCars() {
-        return (await fetch('http://127.0.0.1:3000/garage', { method: 'GET' })).json();
+    async getCars(page = '1', limit = '7') {
+        const response = await fetch(`http://127.0.0.1:3000/garage?_page=${page}&_limit=${limit}`, { method: 'GET' });
+        return {
+            car: await response.json(),
+            count: response.headers.get('X-Total-Count'),
+        };
     }
 
     async addCar(obj: { name: string; color: string }) {
