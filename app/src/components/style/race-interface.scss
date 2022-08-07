@@ -1,6 +1,13 @@
 .race-interface {
    padding-top: 40px;
-max-width: fit-content;
+   max-width: fit-content;
+   & *._race__lock{
+      pointer-events: none;
+      background-color: rgb(129, 129, 129);
+   }
+   & button{
+      user-select: none;
+   }
    // .race-interface__inputs
    &__inputs {
       &:not(:last-child){

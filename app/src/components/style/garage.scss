@@ -1,3 +1,13 @@
+.race{
+   &.hidden{
+      transform: scale(0);
+      overflow: hidden;
+      pointer-events: none;
+      position: absolute;
+      width: 0px;
+      height: 0px;
+   }
+}
 .track-car {
    padding: 20px 0px;
 
@@ -13,18 +23,6 @@
    &__head {
       display: inline-flex;
       column-gap: 15px;
-
-      position: relative;
-      &::after{
-         content:'';
-         display: block;
-         position: absolute;
-         left: 0;
-         bottom: -7px;
-         width: 130%;
-         height: 3px;
-         background-color: rgb(158, 193, 130);
-      }
       margin-bottom: 20px;
    }
    // .track-car__select-car
@@ -59,8 +57,15 @@
             }
          }
    }
+   &__label-car-select._race__lock,
+   &__remove-button._race__lock  {
+        pointer-events: none;
+        background-color: rgb(0, 29, 122);
+   }
    &__name{
-
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
    }
    // .track-car__body
    &__body {
@@ -73,7 +78,7 @@
       display: block;
       position: absolute;
       left: 0;
-      bottom: -5px;
+      bottom: 0px;
       width: 100%;
       height: 3px;
       background-color: #fff;
@@ -83,8 +88,8 @@
       content:'';
       display: block;
       position: absolute;
-      right: 60px;
-      bottom: -5px;
+      right: 90px;
+      bottom: 0px;
       height: 40px;
       width: 3px;
       background-color: #da4;
@@ -92,8 +97,9 @@
    }
    // .track-car__engine
    &__engine {
-      &:checked ~ .track-car__label-engine{
-         background-color: #fff;
+      & .track-car__label-engine._lock{
+         pointer-events: none;
+         background-color: rgb(237, 15, 15);
       }
    }
    // .track-car__label-engine
@@ -107,6 +113,7 @@
       align-items: center;
       user-select: none;
       cursor: pointer;
+      background-color: #fff;
       &:active{
          transform: scale(0.9);
       }
@@ -116,16 +123,59 @@
          }
       }
    }
+
+   &__label-engine._race__lock,
+   &__label-drive._race__lock {
+      background-color: rgb(103, 18, 18);
+      pointer-events: none;
+   }
+
+
    // .track-car__drive
    &__drive {
-      &:checked ~ .track-car__label-drive{
-         background-color: #fff;
-      }
-      &:checked ~ .track-car__label-engine{
-         background-color: rgb(140, 6, 6);
-      }
+
    }
    // .track-car__label-drive
-   &__label-drive {
+   &__label-drive{
+      background-color: #fff;
+   }
+   &__label-drive._lock {
+      background-color: rgb(103, 18, 18);
+      pointer-events: none;
+   }
+
+}
+
+
+.cars-count,
+.garage-page{
+   margin: 15px 0px;
+   font-size: 24px;
+   font-weight: 500;
+}
+
+.track-car__label-engine._lock{
+   pointer-events: none;
+   background-color: rgb(103, 18, 18);
+}
+
+.pagination {
+   display: flex;
+   column-gap: 15px;
+   & button{
+      display: block;
+      padding: 5px 10px;
+      background-color: #fff;
+      user-select: none;
+   }
+   & button._lock{
+      background-color: rgb(102, 102, 102);
+      pointer-events: none;
+   }
+   & button._race__lock{
+      background-color: rgb(102, 102, 102);
+      pointer-events: none;
    }
 }
+
+
